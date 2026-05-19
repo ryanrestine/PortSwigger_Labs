@@ -14,7 +14,7 @@ Repeating the steps from lab 03 to determine the amount of columns, we can incre
 https://0aca00fd03ddaf7281bc253a00ba00f3.web-security-academy.net/filter?category=Gifts%27union%20select%20null,null,null--
 ```
 
-This let's us know that there are three columns. 
+This lets us know that there are three columns. 
 
 Next, we can begin testing these columns for string data by inserting a test string.
 

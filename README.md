@@ -26,7 +26,9 @@ Server-Side:
 2. Authentication 
 3. Path Traversal
 4. Command Injection
-5. Business Logic Vulnerabilities (in-progress)
+5. Business Logic Vulnerabilities
+6. Information Disclosure
+7. Access Control (in progress)
 
 
 ### Resources

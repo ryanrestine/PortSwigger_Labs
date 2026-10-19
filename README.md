@@ -28,7 +28,8 @@ Server-Side:
 4. Command Injection
 5. Business Logic Vulnerabilities
 6. Information Disclosure
-7. Access Control (in progress)
+7. Access Control
+8. File Upload Vulnerabilities (in progress)
 
 
 ### Resources

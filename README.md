@@ -14,22 +14,11 @@ Best case scenario is I keep learning new techniques, sharpen my scripting skill
 
 ### Organization
 
-At the vulnerability class/ type level, I'm following  the order of topics PortSwigger recommends at: https://portswigger.net/web-security/all-topics
+At the vulnerability class/ type level, I'm (loosely) following  the order of topics PortSwigger recommends at: https://portswigger.net/web-security/all-topics
 
-As for the lab order specifically, I follow: https://portswigger.net/web-security/all-labs and work my way through each lab for each topic. Currently I'm skipping the "expert" level labs (I plan on circling back to these later) as well as all out-of-band techniques that require Burp Pro. As of now I'm just a lowly Burp Community user, but plan on upgrading to Pro soon.
+As for the lab order specifically, I follow: https://portswigger.net/web-security/all-labs and work my way through each lab for each topic. Currently I'm skipping the "expert" level labs (I plan on circling back to these later) as well as all out-of-band techniques that require Burp Pro. As of now I'm just a lowly Burp Community user, but plan on upgrading to Pro someday.
 
-### Current Progress
-
-Server-Side:
-
-1. SQL Injection 
-2. Authentication 
-3. Path Traversal
-4. Command Injection
-5. Business Logic Vulnerabilities
-6. Information Disclosure
-7. Access Control
-8. File Upload Vulnerabilities (in progress)
+All that said, sometimes I will just start a topic because it's interesting to me or it's something I'm studying elsewhere and want extra practice with, so the order of completion here is not in perfect order.
 
 
 ### Resources
@@ -42,4 +31,4 @@ and:
 
 - https://github.com/frank-leitner/portswigger-websecurity-academy/tree/main
 
-These repos are goldmines of techniques, both in manual and scripting for pentesters. 
+These repos are goldmines of techniques (both manual and scripting) for pentesters. 
